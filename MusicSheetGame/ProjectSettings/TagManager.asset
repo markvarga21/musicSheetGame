@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Background
   - Circle
+  - Bonus
+  - Obstacle
   layers:
   - Default
   - TransparentFX
