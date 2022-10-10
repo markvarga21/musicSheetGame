@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 03968a6c32b335347bb4b0d6cb92da7f
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: be71ddf757f89c04b9d76614d1cb844e
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 57a02f6bef8631946ad10dc03003ffc4, type: 2}
