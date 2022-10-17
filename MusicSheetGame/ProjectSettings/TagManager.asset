@@ -8,6 +8,7 @@ TagManager:
   - Circle
   - Bonus
   - Obstacle
+  - AudioManagerObject
   layers:
   - Default
   - TransparentFX
