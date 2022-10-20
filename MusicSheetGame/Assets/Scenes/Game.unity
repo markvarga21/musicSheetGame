@@ -1484,7 +1484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 661}
+  m_AnchoredPosition: {x: 0, y: 501}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928189052
@@ -1680,6 +1680,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2052916437}
   - component: {fileID: 2052916438}
+  - component: {fileID: 2052916440}
+  - component: {fileID: 2052916439}
   m_Layer: 0
   m_Name: ObstacleSpawner
   m_TagString: Untagged
@@ -1723,3 +1725,28 @@ MonoBehaviour:
   - {fileID: 1256098254}
   - {fileID: 781260705}
   - {fileID: 1688464948}
+--- !u!114 &2052916439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052916436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7877f64ad150d448867985419410362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2052916440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052916436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08d5908d8c44b40bb942c3863659ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: bociboci.txt

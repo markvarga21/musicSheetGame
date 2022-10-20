@@ -18,8 +18,14 @@ public class ObstacleSpawner : MonoBehaviour
     private float[] noteTopThreshold = new float[13];
     private float[] noteBottomThreshold = new float[13];
 
+    private FileManager fileManager;
+    private SheetConverter sheetConverter;
+    private int[] musicNotesToPlay;
+
+    private int index = 0;
+
     private IEnumerator SpawnObstacle() {
-        yield return new WaitForSeconds(1.5F);
+        yield return new WaitForSeconds(1F);
         Vector2 spawnPosition = this.transform.position + new Vector3(0, Random.Range(-this.spawnRange.y, this.spawnRange.y));
         Instantiate(enemy, spawnPosition, Quaternion.identity);
         StartCoroutine(SpawnObstacle());
@@ -27,8 +33,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnBonus() {
         yield return new WaitForSeconds(1.5F);
-        int randomIndex = Random.Range(0, this.bonusPositionsY.Length);
-        float randomY = this.bonusPositionsY[randomIndex];
+        Debug.Log("Index is: " + this.index.ToString());
+        //int randomIndex = Random.Range(0, this.bonusPositionsY.Length);
+        float randomY = this.bonusPositionsY[musicNotesToPlay[this.index]];
+        this.index += 1;
         Vector2 spawnPosition = this.transform.position + new Vector3(0, randomY);
         Instantiate(bonus, spawnPosition, Quaternion.identity);
         StartCoroutine(SpawnBonus());
@@ -58,16 +66,22 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     void Awake() {
+        this.fileManager = this.GetComponent<FileManager>();
+        this.sheetConverter = this.GetComponent<SheetConverter>();
+        string notesFromFile = this.fileManager.getNotesFromFile();
+        Debug.Log("Notes from file: " + notesFromFile);
+        this.musicNotesToPlay = this.sheetConverter.getLineIndexArrayForString(notesFromFile);
+        Debug.Log("musicNotesToPlay size: " + this.musicNotesToPlay.Length);
         SetupLinePositions();
         FillCollisionBonusPositions();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnObstacle());
         StartCoroutine(SpawnBonus());   
     }
+
 
     private void FillCollisionBonusPositions()
     {
