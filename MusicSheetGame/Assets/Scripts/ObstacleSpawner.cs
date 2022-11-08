@@ -34,8 +34,8 @@ public class ObstacleSpawner : MonoBehaviour
     private IEnumerator SpawnBonus() {
         yield return new WaitForSeconds(1.5F);
         Debug.Log("Index is: " + this.index.ToString());
-        //int randomIndex = Random.Range(0, this.bonusPositionsY.Length);
-        float randomY = this.bonusPositionsY[musicNotesToPlay[this.index]];
+        //int randomIndex = Random.Range(0, this.bonusPositionsY.Length); //musicNotesToPlay[this.index]
+        float randomY = this.bonusPositionsY[6];
         this.index += 1;
         Vector2 spawnPosition = this.transform.position + new Vector3(0, randomY);
         Instantiate(bonus, spawnPosition, Quaternion.identity);
@@ -43,19 +43,30 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     private void SetupLinePositions() {
-        this.bonusPositionsY[0] = this.lines[0].transform.position.y - 0.2f;
-        this.bonusPositionsY[1] = this.lines[0].transform.position.y + 0.4f;
-        this.bonusPositionsY[2] = (this.lines[0].transform.position.y + this.lines[1].transform.position.y + 0.2f)/2; 
-        this.bonusPositionsY[3] = this.lines[1].transform.position.y;
-        this.bonusPositionsY[4] = (this.lines[1].transform.position.y + this.lines[2].transform.position.y + 0.1f)/2; 
-        this.bonusPositionsY[5] = this.lines[2].transform.position.y;
-        this.bonusPositionsY[6] = (this.lines[2].transform.position.y + this.lines[3].transform.position.y + 0.1f)/2; 
-        this.bonusPositionsY[7] = this.lines[3].transform.position.y;
-        this.bonusPositionsY[8] = (this.lines[3].transform.position.y + this.lines[4].transform.position.y + 0.1f)/2; 
-        this.bonusPositionsY[9] = this.lines[4].transform.position.y;
-        this.bonusPositionsY[10] = this.lines[4].transform.position.y + 0.6f;
-        this.bonusPositionsY[11] = this.lines[4].transform.position.y + 0.9f;
-        this.bonusPositionsY[12] = this.lines[4].transform.position.y + 1.5f;
+        float basePosition = this.lines[0].transform.position.y;
+        float step = 0.6f;
+        /*
+        this.bonusPositionsY[0] = basePosition;
+        this.bonusPositionsY[1] = basePosition + 1f*step;
+        this.bonusPositionsY[2] = basePosition + 2f*step;
+        this.bonusPositionsY[3] = basePosition + 2.7f*step;
+        this.bonusPositionsY[4] = basePosition + 3.5f*step; 
+        this.bonusPositionsY[5] = basePosition + 4.3f*step;
+        this.bonusPositionsY[6] = basePosition + 5f*step; 
+        this.bonusPositionsY[7] = basePosition + 5.7f*step;
+        this.bonusPositionsY[8] = basePosition + 6.5f*step; 
+        this.bonusPositionsY[9] = basePosition + 7.3f*step;
+        this.bonusPositionsY[10] = basePosition + 8.2f*step;
+        this.bonusPositionsY[11] = basePosition + 9.1f*step;
+        this.bonusPositionsY[12] = basePosition + 10f*step;
+        */
+
+        float[] offsetValues = new float[]{0f, 1f, 2f, 2.7f, 3.5f, 4.3f, 5f, 5.7f, 6.5f, 7.3f, 8.2f, 9.1f, 10f};
+
+        for (int i = 0; i < 13; i++) {
+            this.bonusPositionsY[i] = basePosition + offsetValues[i]*step;
+        }
+
         OffsetNotes();
     }
 
