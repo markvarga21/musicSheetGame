@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlowBlue
+  m_Name: Glow
   m_Shader: {fileID: -6465566751694194690, guid: 85e4bdaa2c70aa84891fb3a8ffd6923b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,5 +43,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _GlowColor: {r: 1, g: 0, b: 0.056383133, a: 0}
+    - _GlowColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
