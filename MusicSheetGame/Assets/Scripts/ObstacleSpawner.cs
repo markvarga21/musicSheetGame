@@ -26,8 +26,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnObstacle() {
         yield return new WaitForSeconds(1F);
+        /*
         Vector2 spawnPosition = this.transform.position + new Vector3(0, Random.Range(-this.spawnRange.y, this.spawnRange.y));
         Instantiate(enemy, spawnPosition, Quaternion.identity);
+        */
         StartCoroutine(SpawnObstacle());
     }
 
@@ -35,7 +37,7 @@ public class ObstacleSpawner : MonoBehaviour
         yield return new WaitForSeconds(1.5F);
         Debug.Log("Index is: " + this.index.ToString());
         //int randomIndex = Random.Range(0, this.bonusPositionsY.Length); //musicNotesToPlay[this.index]
-        float randomY = this.bonusPositionsY[6];
+        float randomY = this.bonusPositionsY[musicNotesToPlay[this.index]];
         this.index += 1;
         Vector2 spawnPosition = this.transform.position + new Vector3(0, randomY);
         Instantiate(bonus, spawnPosition, Quaternion.identity);
@@ -45,22 +47,6 @@ public class ObstacleSpawner : MonoBehaviour
     private void SetupLinePositions() {
         float basePosition = this.lines[0].transform.position.y;
         float step = 0.6f;
-        /*
-        this.bonusPositionsY[0] = basePosition;
-        this.bonusPositionsY[1] = basePosition + 1f*step;
-        this.bonusPositionsY[2] = basePosition + 2f*step;
-        this.bonusPositionsY[3] = basePosition + 2.7f*step;
-        this.bonusPositionsY[4] = basePosition + 3.5f*step; 
-        this.bonusPositionsY[5] = basePosition + 4.3f*step;
-        this.bonusPositionsY[6] = basePosition + 5f*step; 
-        this.bonusPositionsY[7] = basePosition + 5.7f*step;
-        this.bonusPositionsY[8] = basePosition + 6.5f*step; 
-        this.bonusPositionsY[9] = basePosition + 7.3f*step;
-        this.bonusPositionsY[10] = basePosition + 8.2f*step;
-        this.bonusPositionsY[11] = basePosition + 9.1f*step;
-        this.bonusPositionsY[12] = basePosition + 10f*step;
-        */
-
         float[] offsetValues = new float[]{0f, 1f, 2f, 2.7f, 3.5f, 4.3f, 5f, 5.7f, 6.5f, 7.3f, 8.2f, 9.1f, 10f};
 
         for (int i = 0; i < 13; i++) {
@@ -96,44 +82,13 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void FillCollisionBonusPositions()
     {
-        this.noteBottomThreshold[0] = -2.0f;
-        this.noteTopThreshold[0] = -1.95f;
+        float[] minThresh = new float[]{-2.30f, -1.7f, -1.1f, -0.6f, -0.12f, 0.35f, 0.76f, 1.1f, 1.68f, 2.1f, 2.65f, 3.2f, 3.78f};
+        float[] maxThresh = new float[]{-2.0f, -1.5f, -0.9f, -0.5f, -0.05f, 0.4f, 0.82f, 1.25f, 1.75f, 2.22f, 2.75f, 3.3f, 3.82f};
 
-        this.noteBottomThreshold[1] = -1.4f;
-        this.noteTopThreshold[1] = -1.3f;
-
-        this.noteBottomThreshold[2] = -1.25f;
-        this.noteTopThreshold[2] = -1.2f;
-
-        this.noteBottomThreshold[3] = -0.9f;
-        this.noteTopThreshold[3] = -0.85f;
-
-        this.noteBottomThreshold[4] = -0.35f;
-        this.noteTopThreshold[4] = -0.3f;  
-
-        this.noteBottomThreshold[5] = 0.1f;
-        this.noteTopThreshold[5] = 0.14f;  
-
-        this.noteBottomThreshold[6] = 0.60f;
-        this.noteTopThreshold[6] = 0.70f;  
-
-        this.noteBottomThreshold[7] = 0.9f;
-        this.noteTopThreshold[7] = 1.12f; 
-
-        this.noteBottomThreshold[8] = 1.60f;
-        this.noteTopThreshold[8] = 1.70f; 
-
-        this.noteBottomThreshold[9] = 2.0f;
-        this.noteTopThreshold[9] = 2.12f; 
-
-        this.noteBottomThreshold[10] = 2.65f;
-        this.noteTopThreshold[10] = 2.75f; 
-
-        this.noteBottomThreshold[11] = 2.9f;
-        this.noteTopThreshold[11] = 3.1f; 
-
-        this.noteBottomThreshold[12] = 3.55f;
-        this.noteTopThreshold[12] = 3.65f; 
+        for (int i = 0; i < 13; i++) {
+            this.noteBottomThreshold[i] = minThresh[i];
+            this.noteTopThreshold[i] = maxThresh[i];
+        }
     }
 
     public int getLineIndexForY(float yPos) {
