@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime;
+using UnityEngine.SceneManagement;
 
 public class ObstacleSpawner : MonoBehaviour
 {
@@ -26,19 +27,22 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnObstacle() {
         yield return new WaitForSeconds(1F);
-        /*
+        
         Vector2 spawnPosition = this.transform.position + new Vector3(0, Random.Range(-this.spawnRange.y, this.spawnRange.y));
         Instantiate(enemy, spawnPosition, Quaternion.identity);
-        */
+        
         StartCoroutine(SpawnObstacle());
     }
 
     private IEnumerator SpawnBonus() {
         yield return new WaitForSeconds(1.5F);
         Debug.Log("Index is: " + this.index.ToString());
-        //int randomIndex = Random.Range(0, this.bonusPositionsY.Length); //musicNotesToPlay[this.index]
+        int musicSheetSize = musicNotesToPlay.Length;
         float randomY = this.bonusPositionsY[musicNotesToPlay[this.index]];
         this.index += 1;
+        if (index == musicSheetSize) {
+            SceneManager.LoadScene(3);
+        }
         Vector2 spawnPosition = this.transform.position + new Vector3(0, randomY);
         Instantiate(bonus, spawnPosition, Quaternion.identity);
         StartCoroutine(SpawnBonus());

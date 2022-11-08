@@ -40,7 +40,6 @@ public class BallEventManager : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle")) {
             PlayerPrefs.SetInt("score", this.score);
-            this.score = 0;
             this.scoreText.text = score.ToString();
             SceneManager.LoadScene(2);
         }
