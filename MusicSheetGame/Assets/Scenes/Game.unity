@@ -458,6 +458,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89d920640d7ed9d4daf28ad918bd5d19, type: 3}
   - {fileID: 8300000, guid: f857dcd394a93ea4e842a29696fc9cdd, type: 3}
   gameOverSound: {fileID: 8300000, guid: 7882e47e59905f6419ebcfa35f4cb079, type: 3}
+  obstacleHit: {fileID: 8300000, guid: fd8aab6a12428b54da0997558d4ad284, type: 3}
 --- !u!82 &581270199
 AudioSource:
   m_ObjectHideFlags: 0
@@ -947,7 +948,7 @@ GameObject:
   - component: {fileID: 1007170814}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1910,7 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRange: {x: 0, y: 4}
-  enemy: {fileID: 7388288266045962720, guid: d65ac8bcc4ad89144a4897b0cae0438d, type: 3}
+  enemy: {fileID: 5385707856366199092, guid: a3759568d9390e745b4e887597eb892b, type: 3}
   bonus: {fileID: 2013253333422622863, guid: ec63f94d716901b4f87d45db6edc2ae0, type: 3}
   lines:
   - {fileID: 253459004}

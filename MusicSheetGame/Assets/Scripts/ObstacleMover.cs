@@ -7,13 +7,17 @@ public class ObstacleMover : MonoBehaviour
     [SerializeField]
     private float obstacleMoveSpeed;
 
-    void Start()
-    {
+    private void Start() {
+        this.obstacleMoveSpeed = 4f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         this.transform.Translate(this.obstacleMoveSpeed * Time.deltaTime, 0, 0);
+    }
+
+    public void setObstacleMoveSpeed(float speed) {
+        this.obstacleMoveSpeed = speed;
+        Debug.Log("Obstacle speed: " + this.obstacleMoveSpeed.ToString());
     }
 }

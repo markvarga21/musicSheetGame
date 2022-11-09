@@ -6,19 +6,21 @@ public class BallRotator : MonoBehaviour
 {
     private float ballSpeed;
 
-    // Start is called before the first frame update
     void Start()
     {
         this.ballSpeed = 150.0F;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         this.transform.Rotate(0, 0, this.ballSpeed * Time.deltaTime);
     }
 
     public void changeDiretion() {
         this.ballSpeed *= -1;
+    }
+
+    public void SetBallSpeed(float speed) {
+        this.ballSpeed = speed;
     }
 }
