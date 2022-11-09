@@ -8,15 +8,15 @@ public class AudioManager : MonoBehaviour
     private AudioSource source;
     [SerializeField]
     private AudioClip[] audioClips = new AudioClip[13];
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private AudioClip gameOverSound;
 
     public void playClipAtIndex(int index) {
         this.source.PlayOneShot(this.audioClips[index]);   
+    }
+
+    public void playGameOverSound() {
+        this.source.PlayOneShot(this.gameOverSound);
     }
 
 }

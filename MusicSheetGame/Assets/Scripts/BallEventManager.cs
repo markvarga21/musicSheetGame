@@ -20,12 +20,13 @@ public class BallEventManager : MonoBehaviour
 
     void Start()
     {
-        this.audioManager = this.audioManagerObject.GetComponent<AudioManager>();
         this.obstacleSpawner = this.obstacleSpawnerObject.GetComponent<ObstacleSpawner>();
     }
 
     private void Awake() {
         this.score = 0;
+        this.audioManager = this.audioManagerObject.GetComponent<AudioManager>();
+        DontDestroyOnLoad(this.audioManager);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -39,9 +40,11 @@ public class BallEventManager : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("Obstacle")) {
+            this.audioManager.playGameOverSound();
             PlayerPrefs.SetInt("score", this.score);
             this.scoreText.text = score.ToString();
             SceneManager.LoadScene(2);
         }
     }
+
 }

@@ -457,6 +457,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a22cbd068f1915a4fb91b4e439a46174, type: 3}
   - {fileID: 8300000, guid: 89d920640d7ed9d4daf28ad918bd5d19, type: 3}
   - {fileID: 8300000, guid: f857dcd394a93ea4e842a29696fc9cdd, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 7882e47e59905f6419ebcfa35f4cb079, type: 3}
 --- !u!82 &581270199
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1909,7 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRange: {x: 0, y: 4}
-  enemy: {fileID: 9073719729611364633, guid: 2da4bcbca422bb14d8a219d65b516beb, type: 3}
+  enemy: {fileID: 7388288266045962720, guid: d65ac8bcc4ad89144a4897b0cae0438d, type: 3}
   bonus: {fileID: 2013253333422622863, guid: ec63f94d716901b4f87d45db6edc2ae0, type: 3}
   lines:
   - {fileID: 253459004}
