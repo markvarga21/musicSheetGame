@@ -27,6 +27,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     private AudioManager audioManager;
 
+    private int songIndex = 0;
+
     private IEnumerator SpawnObstacle() {
         yield return new WaitForSeconds(1F);
         
@@ -78,7 +80,8 @@ public class ObstacleSpawner : MonoBehaviour
         this.audioManager = GameObject.FindWithTag("AudioManagerObject").GetComponent<AudioManager>();
         this.fileManager = this.GetComponent<FileManager>();
         this.sheetConverter = this.GetComponent<SheetConverter>();
-        string notesFromFile = this.fileManager.getNotesFromFile();
+        this.fileManager.initSongFile();
+        string notesFromFile = this.fileManager.getNotesFromFile(this.songIndex);
         Debug.Log("Notes from file: " + notesFromFile);
         this.musicNotesToPlay = this.sheetConverter.getLineIndexArrayForString(notesFromFile);
         Debug.Log("musicNotesToPlay size: " + this.musicNotesToPlay.Length);
