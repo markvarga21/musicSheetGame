@@ -10,6 +10,7 @@ public class FileManager : MonoBehaviour
     public string getNotesFromFile() {
         Debug.Log("Loading sheet notes from file: " + fileName);
         string bociboci = "CECEGGCECEGG^CHAGFAGFEDCC";
-        return bociboci;
+        string music = "CDEF";
+        return music;
     }
 }

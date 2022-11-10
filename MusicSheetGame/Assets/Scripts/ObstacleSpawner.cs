@@ -41,11 +41,16 @@ public class ObstacleSpawner : MonoBehaviour
         float randomY = this.bonusPositionsY[musicNotesToPlay[this.index]];
         this.index += 1;
         if (index == musicSheetSize) {
-            SceneManager.LoadScene(3);
+            StartCoroutine(LoadWinSceneDelayed());
         }
         Vector2 spawnPosition = this.transform.position + new Vector3(0, randomY);
         Instantiate(bonus, spawnPosition, Quaternion.identity);
         StartCoroutine(SpawnBonus());
+    }
+
+    private IEnumerator LoadWinSceneDelayed() {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(3);
     }
 
     private void SetupLinePositions() {
