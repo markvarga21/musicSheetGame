@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     private AudioClip gameOverSound;
     [SerializeField]
     private AudioClip obstacleHit;
+    [SerializeField]
+    private AudioClip wonSound;
 
     public void playClipAtIndex(int index) {
         this.source.PlayOneShot(this.audioClips[index]);   
@@ -20,6 +22,10 @@ public class AudioManager : MonoBehaviour
     public void playGameOverSound() {
         this.source.PlayOneShot(this.obstacleHit);
         this.source.PlayOneShot(this.gameOverSound);
+    }
+
+    public void playWonSound() {
+        this.source.PlayOneShot(this.wonSound);
     }
 
 }

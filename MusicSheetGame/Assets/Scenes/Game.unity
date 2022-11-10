@@ -459,6 +459,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f857dcd394a93ea4e842a29696fc9cdd, type: 3}
   gameOverSound: {fileID: 8300000, guid: 7882e47e59905f6419ebcfa35f4cb079, type: 3}
   obstacleHit: {fileID: 8300000, guid: fd8aab6a12428b54da0997558d4ad284, type: 3}
+  wonSound: {fileID: 8300000, guid: bebe849107a585846aad00bc685d4694, type: 3}
 --- !u!82 &581270199
 AudioSource:
   m_ObjectHideFlags: 0
